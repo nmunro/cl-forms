@@ -20,7 +20,7 @@
                 (not (equalp session-token (cdr (assoc (forms::form-csrf-field-name form) (request-post-parameters request) :test #'string=)))))
         ;; The form is not valid. Throw an error, but reset its CSRF token for next time
         (forms::set-form-session-csrf-token form)
-        (error "Invalid CSRF token"))))
+        (error 'csrf-error :form form :message "Invalid CSRF token"))))
 
   (let ((post-parameters (lack/request:request-body-parameters request)))
     (loop for field in (form-fields form)

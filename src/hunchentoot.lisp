@@ -12,7 +12,7 @@
                              (hunchentoot:post-parameter (form-csrf-field-name form) request))))
         ;; The form is not valid. Throw an error, but reset its CSRF token for next time
         (forms::set-form-session-csrf-token form)
-        (error "Invalid CSRF token"))))
+        (error 'csrf-token :form form :message "Invalid CSRF token"))))
   (let ((post-parameters (post-parameters request)))
     (loop for field in (form-fields form)
           do (field-read-from-request (cdr field) form

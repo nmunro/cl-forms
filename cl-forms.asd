@@ -10,5 +10,6 @@
   :depends-on (#:hunchentoot #:cl-forms.core)
   :components ((:module :src
                         :components
-                        ((:file "hunchentoot"))))
+                        ((:file "conditions")
+                         (:file "hunchentoot"))))
   :in-order-to ((asdf:test-op (asdf:test-op :cl-forms.test))))

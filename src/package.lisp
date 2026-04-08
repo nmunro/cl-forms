@@ -8,6 +8,7 @@
    #:with-form
    #:with-form-renderer
    #:with-form-theme
+   #:csrf-error
    #:defform
    #:defform-builder
    #:find-form
